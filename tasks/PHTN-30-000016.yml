@@ -1,0 +1,7 @@
+---
+# PHTN-30-000016
+- name: Audit records must have correct mode set
+  ansible.builtin.cron:
+    name: "Mode should be 0600"
+    minute: "*"
+    job: 'find /var/log/audit -type f -exec chmod 0600 {} \;'

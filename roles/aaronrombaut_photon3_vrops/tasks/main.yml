@@ -1,0 +1,27 @@
+---
+# tasks file for aaronrombaut.photon3-vrops
+
+# - name: "Enable the auditd service and set STIG rules"
+#   ansible.builtin.include_tasks: tasks/audit_stig_rules.yml
+
+# - name: "Edit the pam.d/system-auth file"
+#   ansible.builtin.include_tasks: tasks/system_auth.yml
+
+# - name: "Edit the pam.d/system-account file"
+#   ansible.builtin.include_tasks: tasks/system_account.yml
+
+# - name: "Copy the Standard Mandatory DoD Notice to the /etc/issue file"
+#   ansible.builtin.include_tasks: tasks/standard_mandatory_dod_notice.yml
+
+# - name: "Copy STIG compliant /etc/ssh/sshd_conf file"
+#   ansible.builtin.include_tasks: tasks/sshd_config.yml
+
+# - name: "Edit the limits.conf file"
+#   ansible.builtin.include_tasks: tasks/limits_conf.yml
+
+# - name: "Edit the tmout.sh file"
+#   ansible.builtin.include_tasks: tasks/tmout_sh.yml
+
+# - name: Print all Ansible facts
+#   ansible.builtin.debug:
+#     var: ansible_facts['eth0']['ipv4']['address']

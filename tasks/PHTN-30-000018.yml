@@ -1,0 +1,7 @@
+---
+# PHTN-30-000018
+- name: Audit records must be grouped-owned by root
+  ansible.builtin.cron:
+    name: "Group should be owned by root"
+    minute: "*"
+    job: 'find /var/log/audit -type f -exec chgrp root {} \;'

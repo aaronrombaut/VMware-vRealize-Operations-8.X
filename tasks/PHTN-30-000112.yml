@@ -1,0 +1,8 @@
+---
+# PHTN-30-000112
+- name: Protect the SSH configuration file from unauthorized access
+  ansible.builtin.file:
+    path: '{{ var_sshd_config_file }}'
+    owner: root
+    group: root
+    mode: '0600'

@@ -1,0 +1,11 @@
+---
+# PHTN-30-000052
+- name: Set an inactivity timeout value for non-interactive sessions
+  ansible.builtin.lineinfile:
+      path: "{{ var_bash_bashrc_file }}"
+      line: "{{ item.line }}"
+      state: present
+  with_items:
+      - line: TMOUT=900
+      - line: readonly TMOUT
+      - line: export TMOUT

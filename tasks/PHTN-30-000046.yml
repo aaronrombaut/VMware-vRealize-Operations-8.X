@@ -1,0 +1,14 @@
+---
+# PHTN-30-000046  (Needs work)
+- name: Initiate auditing as part of the boot process
+  ansible.builtin.replace:
+    path: "{{ var_grub_cfg_file }}"
+    regexp: '\blinux.*'
+    replace: '\g<1> audit=11'
+
+- name: Initiate auditing as part of the boot process - add a new line
+  ansible.builtin.lineinfile:
+    path: "{{ var_grub_cfg_file }}"
+    regexp: "linux"
+    line: "    linux /$photon_linux root=$rootpartition $photon_cmdline $systemd_cmdline elevator=noop audit=1"
+    state: present

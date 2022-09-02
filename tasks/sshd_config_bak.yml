@@ -1,0 +1,143 @@
+---
+- name: Add a comment line to /etc/ssh/sshd_config file
+  ansible.builtin.lineinfile:
+    path: "{{ var_sshd_config_file }}"
+    line: "# Added with Ansible"
+    insertafter: EOF
+    state: present
+    backup: yes
+
+- name: Remove lines from the sshd_conf file to prevent duplicates
+  ansible.builtin.lineinfile:
+    path: "{{ var_sshd_config_file }}"
+    regexp: "{{ item.regexp }}"
+    state: absent
+  with_items:
+    # PHTN-30-000119
+    - regexp: "AllowTcpForwarding "
+    # PHTN-30-000003
+    - regexp: "Banner "
+    # PHTN-30-000064
+    - regexp: "Ciphers "
+    # PHTN-30-000038
+    - regexp: "ClientAliveCountMax "
+    # PHTN-30-000037
+    - regexp: "ClientAliveInterval "
+    # PHTN-30-000084
+    - regexp: "Compression "
+    # PHTN-30-000009
+    - regexp: "FipsMode "
+    # PHTN-30-000078
+    - regexp: "GSSAPIAuthentication "
+    # PHTN-30-000115
+    - regexp: "HostbasedAuthentication "
+    # PHTN-30-000086
+    - regexp: "IgnoreRhosts "
+    # PHTN-30-000087
+    - regexp: "IgnoreUserKnownHosts "
+    # PHTN-30-000082
+    - regexp: "KerberosAuthentication "
+    # PHTN-30-000053
+    - regexp: "ListenAddress "
+    # PHTN-30-000120
+    - regexp: "LoginGraceTime "
+    # PHTN-30-000008
+    - regexp: "LogLevel "
+    # PHTN-30-000088
+    - regexp: "MaxAuthTries "
+    # PHTN-30-000083
+    - regexp: "PermitEmptyPasswords "
+    # PHTN-30-000079
+    - regexp: "PermitUserEnvironment "
+    # PHTN-30-000085
+    - regexp: "PrintLastLog "
+    # PHTN-30-000081
+    - regexp: "StrictModes "
+    # PHTN-30-000006
+    - regexp: "SyslogFacility "
+    # PHTN-30-000080
+    - regexp: "X11Forwarding "
+    # Extra
+    - regexp: "UsePrivilegeSeparation"
+    # Extra
+    - regexp: "RhostsRSAAuthentication"
+    # Extra
+    - regexp: "PermitRootLogin"
+
+- name: Add to the sshd_conf File
+  ansible.builtin.lineinfile:
+    path: "{{ var_sshd_config_file }}"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    # PHTN-30-000119
+    - regexp: "^AllowTcpForwarding "
+      line: "AllowTcpForwarding no"
+    # PHTN-30-000003
+    - regexp: "^Banner "
+      line: "Banner /etc/issue"
+    # PHTN-30-000009 -- !!this line must appear before Ciphers!!
+    - regexp: "^FipsMode "
+      line: "FipsMode yes"
+    # PHTN-30-000064
+    - regexp: "^Ciphers "
+      line: "Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr"
+    # PHTN-30-000038
+    - regexp: "^ClientAliveCountMax "
+      line: "ClientAliveCountMax 0"
+    # PHTN-30-000037
+    - regexp: "^ClientAliveInterval "
+      line: "ClientAliveInterval 900"
+    # PHTN-30-000084
+    - regexp: "^Compression "
+      line: "Compression no"
+    # PHTN-30-000078
+    - regexp: "^GSSAPIAuthentication "
+      line: "GSSAPIAuthentication no"
+    # PHTN-30-000115
+    - regexp: "^HostbasedAuthentication "
+      line: "HostbasedAuthentication no"
+    # PHTN-30-000086
+    - regexp: "^IgnoreRhosts "
+      line: "IgnoreRhosts yes"
+    # PHTN-30-000087
+    - regexp: "^IgnoreUserKnownHosts "
+      line: "IgnoreUserKnownHosts yes"
+    # PHTN-30-000082
+    - regexp: "^KerberosAuthentication "
+      line: "KerberosAuthentication no"
+    # PHTN-30-000053
+    - regexp: "^ListenAddress "
+      line: "ListenAddress {{ ansible_facts['eth0']['ipv4']['address'] }}"
+    # PHTN-30-000120
+    - regexp: "^LoginGraceTime "
+      line: "LoginGraceTime 30"
+    # PHTN-30-000008
+    - regexp: "^LogLevel "
+      line: "LogLevel INFO"
+    # PHTN-30-000088
+    - regexp: "^MaxAuthTries "
+      line: "MaxAuthTries 6"
+    # PHTN-30-000083
+    - regexp: "^PermitEmptyPasswords "
+      line: "PermitEmptyPasswords no"
+    # Extra
+    - regexp: "^PermitRootLogin "
+      line: "PermitRootLogin no"
+    # PHTN-30-000079
+    - regexp: "^PermitUserEnvironment "
+      line: "PermitUserEnvironment no"
+    # PHTN-30-000085
+    - regexp: "^PrintLastLog "
+      line: "PrintLastLog yes"
+    # PHTN-30-000081
+    - regexp: "^StrictModes "
+      line: "StrictModes yes"
+    # PHTN-30-000006
+    - regexp: "^SyslogFacility "
+      line: "SyslogFacility AUTHPRIV"
+    # PHTN-30-000080
+    - regexp: "^X11Forwarding "
+      line: "X11Forwarding no"
+  notify: restart ssh

@@ -1,0 +1,7 @@
+---
+- hosts: vrops
+  become: true
+  become_method: sudo
+  gather_facts: yes
+  roles:
+    - aaronrombaut_photon3_vrops

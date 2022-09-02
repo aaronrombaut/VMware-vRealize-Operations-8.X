@@ -1,0 +1,38 @@
+---
+- name: Configure audit log
+  ansible.builtin.lineinfile:
+    path: "{{ var_auditd_conf_file }}"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    # PHTN-30-000010
+    - regexp: "^write_logs "
+      line: "write_logs = yes"
+    # PHTN-30-000011
+    - regexp: "^log_format "
+      line: "log_format = raw"
+    # PHTN-30-000014
+    - regexp: "^space_left_action "
+      line: "space_left_action = SYSLOG"
+    # PHTN-30-000015
+    - regexp: "^disk_full_action "
+      line: "disk_full_action = SYSLOG"
+    - regexp: "^disk_error_action "
+      line: "disk_error_action = SYSLOG"
+    - regexp: "^admin_space_left_action "
+      line: "admin_space_left_action = SYSLOG"
+    # PHTN-30-000055
+    - regexp: "^num_logs "
+      line: num_logs = 5
+    # PHTN-30-000056
+    - regexp: "^max_log_file_action "
+      line: max_log_file_action = IGNORE
+    # PHTN-30-000057
+    - regexp: "^space_left "
+      line: space_left = 75
+    # PHTN-30-000074
+    - regexp: "^freq "
+      line: "freq = 50"
+    - regexp: "^flush "
+      line: "flush = INCREMENTAL_ASYNC"

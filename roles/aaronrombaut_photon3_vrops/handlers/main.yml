@@ -1,0 +1,15 @@
+---
+# handlers file for aaronrombaut.photon3-vrops
+
+- name: restart ssh
+  ansible.builtin.service: 
+    name: sshd 
+    state: restarted
+
+- name: load new audit rules
+  ansible.builtin.command: /sbin/augenrules --load
+
+- name: restart ntpd
+  ansible.builtin.service: 
+    name: ntpd 
+    state: restarted

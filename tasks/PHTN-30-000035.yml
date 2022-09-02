@@ -1,0 +1,7 @@
+---
+# PHTN-30-000035
+- name: Disable new accounts immediately upon password expiration
+  ansible.builtin.lineinfile:
+    path: "{{ var_useradd_file }}"
+    line: INACTIVE=0
+    state: present

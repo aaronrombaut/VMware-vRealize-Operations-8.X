@@ -1,0 +1,9 @@
+---
+# PHTN-30-000049
+- name: Limit privileges to change software resident within software libraries
+  ansible.builtin.file:
+    path: "{{ var_usr_lib_directory }}"
+    owner: root
+    group: root
+    recurse: yes
+    mode: "0755"

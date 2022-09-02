@@ -1,0 +1,7 @@
+---
+# PHTN-30-000040
+- name: /var/log directory must be owned by root
+  ansible.builtin.file:
+    path: "{{ var_log_directory }}"
+    owner: root
+    group: root

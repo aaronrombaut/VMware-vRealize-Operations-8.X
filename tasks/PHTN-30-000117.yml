@@ -1,0 +1,8 @@
+---
+# PHTN-30-000117
+- name: Must store only encrypted representations of passwords
+  ansible.builtin.lineinfile:
+    path: "{{ var_pam_system_password_file }}"
+    regexp: "sha512"
+    line: password required pam_unix.so sha512 shadow try_first_pass
+    state: present

@@ -1,0 +1,7 @@
+---
+# PHTN-30-000013
+- name: The auditd service must be running
+  ansible.builtin.service:
+    name: auditd
+    enabled: yes
+    state: started

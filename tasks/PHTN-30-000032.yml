@@ -1,0 +1,27 @@
+---
+# PHTN-30-000032
+- name: Disable loading of unnecessary kernel modules
+  ansible.builtin.lineinfile:
+    path: "{{ var_modprobe_conf_file }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - line: install sctp /bin/false
+    - line: install dccp /bin/false
+    - line: install dccp_ipv4 /bin/false
+    - line: install dccp_ipv6 /bin/false
+    - line: install ipx /bin/false
+    - line: install appletalk /bin/false
+    - line: install decnet /bin/false
+    - line: install rds /bin/false
+    - line: install tipc /bin/false
+    - line: install bluetooth /bin/false
+    - line: install usb_storage /bin/false
+    - line: install ieee1394 /bin/false
+    - line: install cramfs /bin/false
+    - line: install freevxfs /bin/false
+    - line: install jffs2 /bin/false
+    - line: install hfs /bin/false
+    - line: install hfsplus /bin/false
+    - line: install squashfs /bin/false
+    - line: install udf /bin/false

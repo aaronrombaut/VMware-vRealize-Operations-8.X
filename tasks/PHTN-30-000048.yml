@@ -1,0 +1,14 @@
+---
+# PHTN-30-000048
+- name: Protect audit tools from unauthorized modification and deletion
+  ansible.builtin.audible:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "0750"
+  with_items:
+    - path: "{{ var_auditctl_file }}"
+    - path: "{{ var_auditd_file }}"
+    - path: "{{ var_aureport_file }}"
+    - path: "{{ var_ausearch_file }}"
+    - path: "{{ var_autrace_file }}"

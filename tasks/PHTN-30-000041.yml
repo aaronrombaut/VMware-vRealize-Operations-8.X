@@ -1,0 +1,8 @@
+---
+# PHTN-30-000041
+- name: /var/log/messages directory must be owned by root
+  ansible.builtin.file:
+    path: "{{ var_log_messages_directory }}"
+    owner: root
+    group: root
+    mode: "0640"

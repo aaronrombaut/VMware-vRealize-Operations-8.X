@@ -1,0 +1,53 @@
+---
+# PHTN-30-000013
+- name: The Photon operating system must have the auditd service running.
+  ansible.builtin.service:
+    name: auditd
+    enabled: yes
+    state: started
+
+- name: Audit the execution of privileged functions
+  ansible.builtin.lineinfile:
+    path: "{{ var_audit_stig_rules_file }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    # PHTN-30-000001
+    - line: -w /usr/sbin/useradd -p x -k useradd
+    - line: -w /usr/sbin/groupadd -p x -k groupadd
+    # PHTN-30-000012
+    - line: -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -F key=execpriv
+    - line: -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -F key=execpriv
+    - line: -a always,exit -F arch=b32 -S execve -C uid!=egid -F egid=0 -F key=execpriv
+    - line: -a always,exit -F arch=b64 -S execve -C uid!=egid -F egid=0 -F key=execpriv
+    # PHTN-30-000020
+    - line: -a always,exit -F arch=b64 -S chmod,fchmod,chown,fchown,fchownat,fchmodat -F auid>=1000 -F auid!=4294967295 -F key=perm_mod
+    - line: -a always,exit -F arch=b64 -S chmod,fchmod,chown,fchown,lchown,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr,fchownat,fchmodat -F key=perm_mod
+    - line: -a always,exit -F arch=b32 -S chmod,fchmod,fchown,chown,fchownat,fchmodat -F auid>=1000 -F auid!=4294967295 -F key=perm_mod
+    - line: -a always,exit -F arch=b32 -S chmod,lchown,fchmod,fchown,chown,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr,fchownat,fchmodat -F key=perm_mod
+    # PHTN-30-000042
+    - line: -w /usr/sbin/usermod -p x -k usermod
+    - line: -w /usr/sbin/groupmod -p x -k groupmod
+    # PHTN-30-000043
+    - line: -w /etc/passwd -p wa -k passwd
+    - line: -w /etc/shadow -p wa -k shadow
+    - line: -w /etc/group -p wa -k group
+    - line: -w /etc/gshadow -p wa -k gshadow
+    # PHTN-30-000044
+    - line: -w /usr/bin/passwd -p x -k passwd
+    # PHTN-30-000045
+    - line: -w /usr/sbin/userdel -p x -k userdel
+    - line: -w /usr/sbin/groupdel -p x -k groupdel
+    # PHTN-30-000054
+    - line: -a always,exit -F path=<setuid_path> -F perm=x -F auid>=1000 -F auid!=4294967295 -F key=privileged
+    # PHTN-30-000067
+    - line: -a always,exit -F path=/usr/bin/sudo -F perm=x -F auid>=1000 -F auid!=4294967295 -F key=privileged
+    # PHTN-30-000068
+    - line: -w /var/log/faillog -p wa
+    - line: -w /var/log/lastlog -p wa
+    - line: -w /var/log/tallylog -p wa
+    # PHTN-30-000069
+    - line: -w /sbin/insmod -p x
+    # PHTN-30-000070
+    - line: -w /etc/security/opasswd -p wa -k opasswd
+  notify: load new audit rules

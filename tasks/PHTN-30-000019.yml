@@ -1,0 +1,7 @@
+---
+# PHTN-30-000019
+- name: Set permissions on the audit files in the {{ var_audit_directory }} directory
+  ansible.builtin.file:
+    path: "{{ var_audit_directory }}"
+    mode: 0644
+    state: directory

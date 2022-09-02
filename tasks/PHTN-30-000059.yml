@@ -1,0 +1,11 @@
+---
+# PHTN-30-000059
+- name: RPM package management tool must cryptographically verify the authenticity
+  ansible.builtin.lineinfile:
+    path: "{{ item.path }}"
+    regexp: "nosignature"
+    state: absent
+  with_items:
+    - path: "{{ var_lib_rpmc_file }}"
+    - path: "{{ var_etc_rpmrc_file }}"
+    - path: "{{ var_root_rpmrc_file }}"

@@ -1,0 +1,7 @@
+---
+# PHTN-30-000017
+- name: Audit records must be owned by root
+  ansible.builtin.cron:
+    name: "Owner should be root"
+    minute: "*"
+    job: 'find /var/log/audit -type f -exec chown root {} \;'

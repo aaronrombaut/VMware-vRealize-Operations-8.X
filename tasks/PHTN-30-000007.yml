@@ -1,0 +1,9 @@
+---
+# PHTN-30-000007
+- name: Check for sshd Authentication logging
+  ansible.builtin.lineinfile:
+    path: "{{ var_rsyslog_config_file }}"
+    regexp: "^authpriv "
+    line: "authpriv.*   /var/log/auth.log"
+    state: present
+    backup: yes

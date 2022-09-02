@@ -1,0 +1,13 @@
+---
+# PHTN-30-000109
+- name: Protect the SSH private host key from modification
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "0600"
+  with_items:
+    - path: /etc/ssh/ssh_host_dsa_key
+    - path: /etc/ssh/ssh_host_ecdsa_key
+    - path: /etc/ssh/ssh_host_ed25519_key
+    - path: /etc/ssh/ssh_host_rsa_key
