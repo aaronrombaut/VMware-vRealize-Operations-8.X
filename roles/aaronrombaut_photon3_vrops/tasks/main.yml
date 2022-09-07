@@ -28,8 +28,11 @@
 # - name: "Edit the auditd.conf file"
 #   ansible.builtin.include_tasks: tasks/auditd_conf.yml
 
-- name: "Edit the permissions of the audit directory"
-  ansible.builtin.include_tasks: tasks/PHTN-30-000019.yml
+# - name: "Edit the permissions of the audit directory"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000019.yml
+
+- name: "Edit the system-password.yml file"
+  ansible.builtin.include_tasks: tasks/system_password.yml
 
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
