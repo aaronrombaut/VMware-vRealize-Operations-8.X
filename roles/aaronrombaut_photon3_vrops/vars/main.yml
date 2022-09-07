@@ -10,6 +10,7 @@ var_syslog_server_protocol: "@" # (For UDP) "@"; (For TCP) "@@"; (For TLS) "@@(o
 
 # directories
 var_audit_directory: "/etc/audit"
+var_log_audit_directory: "/var/log/audit/"
 var_log_directory: "/var/log"
 var_log_messages_directory: "/var/log/messages"
 var_usr_lib_directory: "/usr/lib/"
