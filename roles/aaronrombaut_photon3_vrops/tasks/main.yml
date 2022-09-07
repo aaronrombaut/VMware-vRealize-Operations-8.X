@@ -25,6 +25,12 @@
 # - name: "Edit the rsyslog.conf file"
 #   ansible.builtin.include_tasks: tasks/rsyslog_conf.yml
 
+# - name: "Edit the auditd.conf file"
+#   ansible.builtin.include_tasks: tasks/auditd_conf.yml
+
+- name: "Edit the permissions of the audit directory"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000019.yml
+
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
 #     var: ansible_facts['eth0']['ipv4']['address']

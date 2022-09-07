@@ -45,7 +45,7 @@
 # PHTN-30-000017
 # PHTN-30-000018
 - name: The Photon operating system audit log must have correct permissions.
-  ansible.builtin.lineinfile:
+  ansible.builtin.file:
     path: "{{ var_log_audit_directory }}"
     mode: "0644"
     owner: root
