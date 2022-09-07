@@ -67,6 +67,17 @@
 # - name: "PHTN-30-000059"
 #   ansible.builtin.include_tasks: tasks/PHTN-30-000059.yml
 
+# - name: "PHTN-30-000108"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000108.yml
+
+# - name: "PHTN-30-000109"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000109.yml
+
+# - name: "Edit the tdnf.conf file"
+#   ansible.builtin.include_tasks: tasks/tdnf_conf.yml
+
+- name: "Edit the yum_repos_d file"
+  ansible.builtin.include_tasks: tasks/yum_repos_d.yml
 
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
