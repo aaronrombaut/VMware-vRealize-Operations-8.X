@@ -1,0 +1,15 @@
+---
+# PHTN-30-000058
+- name: Synchronize with an approved DoD time source.
+  ansible.builtin.lineinfile:
+    path: "{{ var_ntp_conf_file }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - line: tinker panic 0
+    - line: restrict default kod nomodify notrap nopeer
+    - line: restrict 127.0.0.1
+    - line: restrict -6 ::1
+    - line: driftfile /var/lib/ntp/drift/ntp.drift
+    - line: server '{{ var_ntp_servers }}'
+  notify: restart ntpd
