@@ -37,6 +37,12 @@
 # - name: "Edit the login.defs file"
 #   ansible.builtin.include_tasks: tasks/login_defs.yml
 
+# - name: "Edit the modprobe.conf file"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000032.yml
+
+# - name: "Edit the sysctl.conf file"
+#   ansible.builtin.include_tasks: tasks/sysctl.yml
+
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
 #     var: ansible_facts['eth0']['ipv4']['address']
