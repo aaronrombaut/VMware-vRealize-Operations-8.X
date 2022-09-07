@@ -31,8 +31,11 @@
 # - name: "Edit the permissions of the audit directory"
 #   ansible.builtin.include_tasks: tasks/PHTN-30-000019.yml
 
-- name: "Edit the system-password.yml file"
-  ansible.builtin.include_tasks: tasks/system_password.yml
+# - name: "Edit the system-password.yml file"
+#   ansible.builtin.include_tasks: tasks/system_password.yml
+
+# - name: "Edit the login.defs file"
+#   ansible.builtin.include_tasks: tasks/login_defs.yml
 
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
