@@ -4,6 +4,9 @@
 # general variables
 var_openssh_version: "7.6"
 var_ntp_servers: "time.cloudflare.com"
+var_syslog_server_fqdn: "vrli.aaronrombaut.com"
+var_syslog_server_port: "514"
+var_syslog_server_protocol: "@" # (For UDP) "@"; (For TCP) "@@"; (For TLS) "@@(o)"
 
 # directories
 var_audit_directory: "/etc/audit"

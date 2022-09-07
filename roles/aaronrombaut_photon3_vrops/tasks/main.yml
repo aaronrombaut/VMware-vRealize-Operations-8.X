@@ -22,6 +22,9 @@
 # - name: "Edit the tmout.sh file"
 #   ansible.builtin.include_tasks: tasks/tmout_sh.yml
 
+# - name: "Edit the rsyslog.conf file"
+#   ansible.builtin.include_tasks: tasks/rsyslog_conf.yml
+
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
 #     var: ansible_facts['eth0']['ipv4']['address']
