@@ -43,6 +43,31 @@
 # - name: "Edit the sysctl.conf file"
 #   ansible.builtin.include_tasks: tasks/sysctl.yml
 
+# - name: "PHTN-30-000040.yml"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000040.yml
+
+# - name: "PHTN-30-000041.yml"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000041.yml
+
+# - name: "PHTN-30-000046.yml"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000046.yml
+
+# - name: "PHTN-30-000048"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000048.yml
+
+# - name: "PHTN-30-000049"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000049.yml
+
+# - name: "PHTN-30-000052"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000052.yml
+
+# - name: "PHTN-30-000058"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000058.yml
+
+# - name: "PHTN-30-000059"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000059.yml
+
+
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
 #     var: ansible_facts['eth0']['ipv4']['address']
