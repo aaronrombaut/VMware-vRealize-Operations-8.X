@@ -1,0 +1,10 @@
+---
+# PHTN-30-000077
+- name: The Photon operating system must configure a secure umask for all shells.
+  ansible.builtin.copy:
+    src: files/umask.sh
+    dest: "{{ var_profile_d_umask_sh_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes

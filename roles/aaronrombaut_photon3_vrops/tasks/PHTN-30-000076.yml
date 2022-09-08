@@ -1,0 +1,7 @@
+---
+# PHTN-30-000076
+- name: The Photon operating system must disable the debug-shell service
+  ansible.builtin.service: 
+    name: debug-shell.service
+    enabled: no
+    state: stopped
