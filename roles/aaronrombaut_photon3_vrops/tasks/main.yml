@@ -76,8 +76,18 @@
 # - name: "Edit the tdnf.conf file"
 #   ansible.builtin.include_tasks: tasks/tdnf_conf.yml
 
-- name: "Edit the yum_repos_d file"
-  ansible.builtin.include_tasks: tasks/yum_repos_d.yml
+# - name: "Edit the yum_repos_d file"
+#   ansible.builtin.include_tasks: tasks/yum_repos_d.yml
+
+# - name: "Edit the 50-security-hardening.conf file"
+#   ansible.builtin.include_tasks: tasks/50_security_hardening_conf.yml
+
+# - name: "PHTN-30-000076"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000076.yml
+
+- name: "PHTN-30-000077"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000076.yml
+
 
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
