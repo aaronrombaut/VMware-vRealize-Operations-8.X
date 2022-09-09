@@ -10,9 +10,12 @@ var_syslog_server_protocol: "@" # (For UDP) "@"; (For TCP) "@@"; (For TLS) "@@(o
 
 # directories
 var_audit_directory: "/etc/audit"
+var_etc_rc_d_directory: "/etc/rc.d/"
 var_log_audit_directory: "/var/log/audit/"
 var_log_directory: "/var/log"
 var_log_messages_directory: "/var/log/messages"
+var_profile_d_directory: "/etc/profile.d/"
+var_root_directory: "/root"
 var_usr_lib_directory: "/usr/lib/"
 
 # files
@@ -25,8 +28,13 @@ var_aureport_file: "/usr/sbin/aureport"
 var_ausearch_file: "/usr/sbin/ausearch"
 var_autrace_file: "/usr/sbin/autrace"
 var_bash_bashrc_file: "/etc/bash.bashrc"
+var_etc_cron_allow_file: "/etc/cron.allow"
 var_etc_issue_file: "/etc/issue"
+var_etc_profile_file: "/etc/profile"
 var_etc_rpmrc_file: "/etc/rpmrc"
+var_etc_skel_bash_logout_file: "/etc/skel/.bash_logout"
+var_etc_skel_bash_profile_file: "/etc/skel/.bash_profile"
+var_etc_skel_bashrc_file: "/etc/skel/.bashrc"
 var_grub_cfg_file: "/boot/grub2/grub.cfg"
 var_lib_rpmc_file: "/usr/lib/rpm/rpmrc"
 var_limits_conf_file: "/etc/security/limits.conf"
