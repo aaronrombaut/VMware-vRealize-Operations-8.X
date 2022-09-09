@@ -17,6 +17,12 @@ var_log_messages_directory: "/var/log/messages"
 var_profile_d_directory: "/etc/profile.d/"
 var_root_directory: "/root"
 var_usr_lib_directory: "/usr/lib/"
+var_cron_d_directory: "/etc/cron.d/"
+var_cron_daily_directory: "/etc/cron.daily/"
+var_cron_hourly_directory: "/etc/cron.hourly/"
+var_cron_monthly_directory: "/etc/cron.monthly/"
+var_cron_weekly_directory: "/etc/cron.weekly/"
+var_sysctl_d_directory: "/etc/sysctl.d/"
 
 # files
 var_50_security_hardening_conf_file: "/etc/sysctl.d/50-security-hardening.conf"
@@ -56,6 +62,7 @@ var_yum_repos_photon_extras_repo_file: "/etc/yum.repos.d/photon-extras.repo"
 var_yum_repos_photon_iso_repo_file: "/etc/yum.repos.d/photon-iso.repo"
 var_yum_repos_photon_repo_file: "/etc/yum.repos.d/photon.repo"
 var_yum_repos_photon_updates_repo_file: "/etc/yum.repos.d/photon-updates.repo"
+
 
 # sshd_config variables
 var_permitrootlogin: "no"
