@@ -85,8 +85,24 @@
 # - name: "PHTN-30-000076"
 #   ansible.builtin.include_tasks: tasks/PHTN-30-000076.yml
 
-- name: "PHTN-30-000077"
-  ansible.builtin.include_tasks: tasks/PHTN-30-000076.yml
+# - name: "PHTN-30-000077"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000076.yml
+
+# - name: Verify the /etc/skel file permissions.
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000090.yml
+
+# - name: Verify the permissions of the /root directory.
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000091.yml
+
+# - name: "PHTN-30-000092"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000092.yml
+
+# - name: "PHTN-30-000093"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000093.yml
+
+# - name: "PHTN-30-000095"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000095.yml
+
 
 
 # - name: Print all Ansible facts
