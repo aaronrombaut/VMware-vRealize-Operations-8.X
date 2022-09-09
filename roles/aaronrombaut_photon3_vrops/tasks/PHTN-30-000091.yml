@@ -1,0 +1,7 @@
+---
+- name: The Photon operating system must be configured so that the /root path is protected from unauthorized access
+  ansible.builtin.file:
+    path: "{{ var_root_directory }}"
+    owner: root
+    group: root
+    mode: "0700"

@@ -1,0 +1,15 @@
+---
+# PHTN-30-000090
+- name: The Photon operating system must be configured so that the /etc/skel default scripts are protected from unauthorized modification.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "{{ item.mode }}"
+  with_items:
+    - path: "{{ var_etc_skel_bash_logout_file }}"
+      mode: "0750"
+    - path: "{{ var_etc_skel_bash_profile_file }}"
+      mode: "0644"
+    - path: "{{ var_etc_skel_bashrc_file }}"
+      mode: "0750"
