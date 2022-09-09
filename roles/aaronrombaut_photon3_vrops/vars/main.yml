@@ -63,6 +63,5 @@ var_yum_repos_photon_iso_repo_file: "/etc/yum.repos.d/photon-iso.repo"
 var_yum_repos_photon_repo_file: "/etc/yum.repos.d/photon.repo"
 var_yum_repos_photon_updates_repo_file: "/etc/yum.repos.d/photon-updates.repo"
 
-
 # sshd_config variables
 var_permitrootlogin: "no"
