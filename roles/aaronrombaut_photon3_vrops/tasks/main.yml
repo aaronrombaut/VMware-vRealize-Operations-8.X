@@ -103,7 +103,20 @@
 # - name: "PHTN-30-000095"
 #   ansible.builtin.include_tasks: tasks/PHTN-30-000095.yml
 
+# - name: "PHTN-30-000096"
+  # ansible.builtin.include_tasks: tasks/PHTN-30-000096.yml
 
+# - name: "PHTN-30-000097"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000097.yml
+
+# - name: "PHTN-30-000111"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000111.yml
+
+# - name: "PHTN-30-000113"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000113.yml
+
+- name: "PHTN-30-000118"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000118.yml
 
 # - name: Print all Ansible facts
 #   ansible.builtin.debug:
