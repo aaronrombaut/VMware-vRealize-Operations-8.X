@@ -1,0 +1,9 @@
+---
+# PHTN-30-000118
+- name: The Photon operating system must ensure that the old passwords are being stored.
+  ansible.builtin.file:
+    path: "/etc/security/opasswd"
+    owner: root
+    group: root
+    mode: "0600"
+    state: file

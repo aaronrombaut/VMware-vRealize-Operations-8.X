@@ -1,0 +1,14 @@
+---
+# PHTN-30-000113
+- name: The Photon operating system must protect all sysctl configuration files from unauthorized access.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "0600"
+  with_items:
+    - path: "/etc/sysctl.d/50-security-hardening.conf"
+    - path: "/etc/sysctl.d/90-va-tune-up.conf"
+    - path: "/etc/sysctl.d/99-compat.conf"
+    - path: "/etc/sysctl.d/99-sysctl.conf" # this is the link from /etc/sysctl.conf
+    

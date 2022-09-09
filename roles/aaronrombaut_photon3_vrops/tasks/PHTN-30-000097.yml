@@ -1,0 +1,14 @@
+---
+# PHTN-30-000097
+- name: The Photon operating system must be configured so that all cron paths are protected from unauthorized modification.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "0755"
+  with_items:
+    - path: "{{ var_cron_d_directory }}"
+    - path: "{{ var_cron_daily_directory }}"
+    - path: "{{ var_cron_hourly_directory }}"
+    - path: "{{ var_cron_monthly_directory }}"
+    - path: "{{ var_cron_weekly_directory }}"
