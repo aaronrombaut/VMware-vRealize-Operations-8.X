@@ -1,0 +1,15 @@
+---
+- name: Get a list of files
+  ansible.builtin.find:
+    path: "/home/svc-ansible/Documents"
+    patterns: "file*.txt"
+  register: home_files
+
+# - name: "Print the variable"
+#   debug: var=home_files
+
+# - debug: "{{ home_files.files.path }}"
+
+- debug: 
+    msg: "{{ item.path }}"
+  loop: "{{ home_files.files }}"
