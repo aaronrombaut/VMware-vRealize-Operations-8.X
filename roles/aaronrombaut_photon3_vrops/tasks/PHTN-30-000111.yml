@@ -1,16 +1,14 @@
 ---
 # PHTN-30-000111
-#find /boot/*.cfg -xdev -type f -a '(' -not -perm 600 -o -not -user root -o -not -group root ')' -exec ls -ld {} \;
+- name: Get a list of files matching the /boot/*.cfg pattern.
+  ansible.builtin.find:
+    path: /boot/
+    patterns: "*.cfg"
+    use_regex: no
+    file_type: file
+  register: boot_cfg_files
 
-# - name: Check for files in the directory
-#   ansible.builtin.find: 
-#     path: /boot/
-#     patterns: "*.cfg"
-#     use_regex: no
-#     file_type: file
-#   register: boot_files
-
-# - debug: var=boot_files
+# - debug: var=boot_cfg_files
 
 - name: The Photon operating system must protect all boot configuration files from unauthorized access
   ansible.builtin.file:
@@ -18,6 +16,4 @@
     owner: root
     group: root
     mode: "0600"
-  with_items:
-    - path: "/boot/linux-4.19.232-4.ph3.cfg"
-    - path: "/boot/systemd.cfg"
+  loop: "{{ boot_cfg_files.files }}"

@@ -1,8 +1,16 @@
 ---
 # PHTN-30-000019
-- name: Set permissions on the audit files in the {{ var_audit_directory }} directory
-  ansible.builtin.file:
+- name: Get a list of files in the {{ var_audit_directory }} directory.
+  ansible.builtin.find:
     path: "{{ var_audit_directory }}"
+  register: audit_files
+
+# - debug:
+#     msg: "{{ item.path }}"
+#   loop: "{{ audit_files.files }}"
+
+- name: "PHTN-30-000019: The Photon operating system must allow only the ISSM (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited."
+  ansible.builtin.file:
+    path: "{{ item.path }}"
     mode: "0640"
-    recurse: "yes"
-    state: directory
+  loop: "{{ audit_files.files }}"

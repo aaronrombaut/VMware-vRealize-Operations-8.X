@@ -1,14 +1,15 @@
 ---
 # PHTN-30-000113
+- name: Get a list of files in the {{ var_sysctl_d_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_sysctl_d_directory }}"
+  register: sysctl_d_files
+
 - name: The Photon operating system must protect all sysctl configuration files from unauthorized access.
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
     group: root
     mode: "0600"
-  with_items:
-    - path: "/etc/sysctl.d/50-security-hardening.conf"
-    - path: "/etc/sysctl.d/90-va-tune-up.conf"
-    - path: "/etc/sysctl.d/99-compat.conf"
-    - path: "/etc/sysctl.d/99-sysctl.conf" # this is the link from /etc/sysctl.conf
+  loop: "{{ sysctl_d_files.files }}"
     

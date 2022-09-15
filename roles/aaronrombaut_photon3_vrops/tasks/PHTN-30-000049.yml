@@ -1,8 +1,14 @@
 ---
 # PHTN-30-000049
-- name: Limit privileges to change software resident within software libraries
-  ansible.builtin.file:
+- name: Get a list of files in the {{ var_usr_lib_directory }} directory.
+  ansible.builtin.find:
     path: "{{ var_usr_lib_directory }}"
+  register: lib_files
+
+- name: The Photon operating system must limit privileges to change software resident within software libraries
+  ansible.builtin.file:
+    path: "{{ item.path }}"
     owner: root
     group: root
     mode: "0755"
+  loop: "{{ lib_files.files }}"

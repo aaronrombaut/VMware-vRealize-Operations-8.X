@@ -1,15 +1,67 @@
 ---
 # PHTN-30-000096
+- name: Get a list of files in the {{ var_cron_d_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_cron_d_directory }}"
+  register: cron_d_files
+
 - name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
     group: root
     mode: "o-w"
-    recurse: yes
-  with_items:
-    - path: "{{ var_cron_d_directory }}"
-    - path: "{{ var_cron_daily_directory }}"
-    - path: "{{ var_cron_hourly_directory }}"
-    - path: "{{ var_cron_monthly_directory }}"
-    - path: "{{ var_cron_weekly_directory }}"
+  loop: "{{ cron_d_files.files }}"
+
+- name: Get a list of files in the {{ var_cron_daily_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_cron_daily_directory }}"
+  register: daily_files
+
+- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "o-w"
+  loop: "{{ daily_files.files }}"
+
+- name: Get a list of files in the {{ var_cron_hourly_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_cron_hourly_directory }}"
+  register: hourly_files
+
+- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "o-w"
+  loop: "{{ hourly_files.files }}"
+
+- name: Get a list of files in the {{ var_cron_monthly_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_cron_monthly_directory }}"
+  register: monthly_files
+
+- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "o-w"
+  loop: "{{ monthly_files.files }}"
+
+- name: Get a list of files in the {{ var_cron_weekly_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_cron_weekly_directory }}"
+  register: weekly_files
+
+- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    owner: root
+    group: root
+    mode: "o-w"
+  loop: "{{ weekly_files.files }}"
+

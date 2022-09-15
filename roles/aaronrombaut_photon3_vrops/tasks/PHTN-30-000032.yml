@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000032
-- name: Disable loading of unnecessary kernel modules
+- name: "PHTN-30-000032: The Photon operating system must disable the loading of unnecessary kernel modules."
   ansible.builtin.lineinfile:
     path: "{{ var_modprobe_conf_file }}"
     line: "{{ item.line }}"

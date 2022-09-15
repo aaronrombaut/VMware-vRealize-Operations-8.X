@@ -1,4 +1,10 @@
 ---
+# PHTN-30-000092
+- name: Get a list of files in the {{ var_profile_d_directory }} directory.
+  ansible.builtin.find:
+    path: "{{ var_profile_d_directory }}"
+  register: profile_d_files
+
 - name: The Photon operating system must be configured so that all global initialization scripts are protected from unathorized modification.
   ansible.builtin.file:
     path: "{{ item.path }}"
@@ -11,8 +17,8 @@
 
 - name: The Photon operating system must be configured so that all global initialization scripts are protected from unathorized modification.
   ansible.builtin.file:
-    path: "{{ var_profile_d_directory }}"
+    path: "{{ item.path }}"
     owner: root
     group: root
     mode: "o-w"
-    recurse: yes
+  loop: "{{ profile_d_files.files }}"
