@@ -1,0 +1,7 @@
+---
+# PHTN-30-000013
+- name: "PHTN-30-000013: The Photon operating system must have the auditd service running."
+  ansible.builtin.service:
+    name: auditd
+    enabled: yes
+    state: started

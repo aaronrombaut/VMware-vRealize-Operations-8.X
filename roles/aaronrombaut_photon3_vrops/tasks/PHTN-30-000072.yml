@@ -1,0 +1,9 @@
+---
+# PHTN-30-000072
+- name: "The Photon operating system must set the FAIL_DELAY parameter."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "FAIL_DELAY"
+    line: "FAIL DELAY 4"
+    state: present
+    backup: yes

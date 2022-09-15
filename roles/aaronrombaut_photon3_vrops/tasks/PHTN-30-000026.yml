@@ -1,0 +1,7 @@
+---
+# vRealize Operations does not fully support this command
+# PHTN-30-000026
+- name: "PHTN-30-000026: The Photon operating system must use OpenSSH for remote maintenance sessions."
+  ansible.builtin.yum:
+    name: openssh>='{{ var_openssh_version }}'
+    state: present

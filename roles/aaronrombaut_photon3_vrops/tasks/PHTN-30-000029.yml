@@ -1,0 +1,8 @@
+---
+# # PHTN-30-000029
+# - name: "PHTN-30-000029: The Photon operating system must prohibit password reuse for a minimum of five generations."
+#   ansible.builtin.lineinfile:
+#     path: "{{ var_pam_system_password_file }}"
+#     insertafter: "password requisite pam_cracklib.so"
+#     line: password requisite pam_pwhistory.so enforce_for_root use_authtok remember=5 retry=3
+#     state: present

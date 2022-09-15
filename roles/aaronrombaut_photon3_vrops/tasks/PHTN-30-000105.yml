@@ -1,0 +1,20 @@
+---
+# PHTN-30-000105
+- name: Set kernel tunables using sysctl
+  ansible.posix.sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+  with_items:
+    - name: net.ipv4.conf.all.mc_forwarding
+      value: "0"
+    - name: net.ipv4.conf.default.mc_forwarding
+      value: "0"
+    - name: net.ipv4.conf.eth0.mc_forwarding
+      value: "0"
+    - name: net.ipv6.conf.all.mc_forwarding
+      value: "0"
+    - name: net.ipv6.conf.default.mc_forwarding = 0net.ipv6.conf.eth0.mc_forwarding
+      value: "0"
+    - name: net.ipv6.conf.eth0.mc_forwarding
+      value: "0"

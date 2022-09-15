@@ -1,0 +1,9 @@
+---
+# # PHTN-30-000021
+# - name: "PHTN-30-000021: The Photon operating system must enforce password complexity by requiring that at least one uppercase character be used."
+#   ansible.builtin.lineinfile:
+#     path: "{{ var_pam_system_password_file }}"
+#     regexp: "pam_cracklib"
+#     line: "password   requisite   pam_cracklib.so dcredit=-1 ucredit=-1 lcredit=-1 ocredit=-1 minlen=8 minclass=4 difok=4 retry=3 maxsequence=0 enforce_for_root"
+#     state: present
+#     backup: yes

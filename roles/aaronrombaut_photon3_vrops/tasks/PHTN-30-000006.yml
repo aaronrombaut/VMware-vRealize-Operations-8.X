@@ -1,0 +1,8 @@
+---
+# PHTN-30-000006
+- name: 'PHTN-30-000006: The Photon operating system must have the sshd SyslogFacility set to "authpriv".'
+  ansible.builtin.lineinfile:
+    path: "{{ var_sshd_config_file }}"
+    regexp: "^SyslogFacility "
+    line: "SyslogFacility AUTHPRIV"
+    state: present

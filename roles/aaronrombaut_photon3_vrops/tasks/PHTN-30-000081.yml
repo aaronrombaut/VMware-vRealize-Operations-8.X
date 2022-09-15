@@ -1,0 +1,7 @@
+---
+- name: Update SSH Configuration File
+  ansible.builtin.lineinfile:
+    path: "{{ var_sshd_config_file }}"
+    regexp: "^StrictModes "
+    line: "StrictModes yes"
+    state: present

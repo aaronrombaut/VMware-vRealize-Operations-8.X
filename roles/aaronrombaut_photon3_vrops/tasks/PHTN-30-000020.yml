@@ -1,0 +1,21 @@
+---
+# PHTN-30-000020
+
+# Note: The STIG Fix Text specifies the rules ending in '-F key=execpriv'
+# This is actually the result of the output from auditctl -l
+# The rule needs to be loaded as '-k execpriv'
+# It will be converted to '-F' after the rules are loaded
+# unset; -1; 4294967295 are all equivalent
+# Again, the STIG Fix Text specifies the printed out number, not the value defining the rule which should be -1.
+
+- name: "PHTN-30-000020: The Photon operating system must generate audit records when successful/unsuccessful attempts to access priveleges occur."
+  ansible.builtin.lineinfile:
+    path: "{{ var_audit_stig_rules_file }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - line: -a always,exit -F arch=b64 -S chmod,fchmod,chown,fchown,fchownat,fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
+    - line: -a always,exit -F arch=b64 -S chmod,fchmod,chown,fchown,lchown,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr,fchownat,fchmodat -k perm_mod
+    - line: -a always,exit -F arch=b32 -S chmod,fchmod,fchown,chown,fchownat,fchmodat -F auid>=1000 -F auid!=-1 -k perm_mod
+    - line: -a always,exit -F arch=b32 -S chmod,lchown,fchmod,fchown,chown,setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr,fchownat,fchmodat -k perm_mod
+  notify: load new audit rules

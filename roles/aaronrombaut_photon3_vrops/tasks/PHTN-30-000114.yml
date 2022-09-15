@@ -1,0 +1,9 @@
+---
+# PHTN-30-000114
+- name: "The Photon operating system must set the UMASK parameter correctly."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "UMASK"
+    line: "UMASK 077"
+    state: present
+    backup: yes

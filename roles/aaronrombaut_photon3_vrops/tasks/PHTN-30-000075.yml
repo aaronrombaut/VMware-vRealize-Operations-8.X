@@ -1,0 +1,9 @@
+---
+# PHTN-30-000075
+- name: "The Photon operating system must create a home directory for all new local interactive user accounts."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "CREATE_HOME "
+    line: "CREATE_HOME yes"
+    state: present
+    backup: yes

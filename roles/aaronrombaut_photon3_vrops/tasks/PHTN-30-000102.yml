@@ -1,0 +1,14 @@
+---
+  # PHTN-30-000102
+- name: Set kernel tunables using sysctl
+  ansible.posix.sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    state: present
+  with_items:
+    - name: net.ipv4.conf.all.send_redirects
+      value: "0"
+    - name: net.ipv4.conf.default.send_redirects
+      value: "0"
+    - name: net.ipv4.conf.eth0.send_redirects
+      value: "0"

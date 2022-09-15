@@ -1,0 +1,10 @@
+---
+# PHTN-30-000007
+- name: "PHTN-30-000007: The Photon operating system must have sshd authentication logging enabled."
+  ansible.builtin.lineinfile:
+    path: "{{ var_rsyslog_config_file }}"
+    regexp: "^authpriv "
+    line: "authpriv.*   /var/log/auth.log"
+    state: present
+    backup: yes
+  notify: restart rsyslog service

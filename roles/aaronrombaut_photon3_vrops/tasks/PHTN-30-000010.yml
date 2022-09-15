@@ -1,0 +1,8 @@
+---
+# PHTN-30-000010
+- name: "PHTN-30-000010: The Photon operating system must configure auditd to log to disk."
+  ansible.builtin.lineinfile:
+    path: "{{ var_auditd_conf_file }}"
+    regexp: "^write_logs "
+    line: "write_logs = yes"
+    state: present

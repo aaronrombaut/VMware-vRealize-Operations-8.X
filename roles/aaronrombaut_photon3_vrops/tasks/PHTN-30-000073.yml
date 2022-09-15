@@ -1,0 +1,14 @@
+---
+# PHTN-30-000073
+- name: Remove any existing "pam_faildelay" line
+  ansible.builtin.lineinfile:
+    path: "{{ var_pam_system_auth_file }}"
+    regexp: "pam_faildelay"
+    state: absent
+
+- name: Add the follwing line at the end of the file
+  ansible.builtin.lineinfile:
+    path: "{{ var_pam_system_auth_file }}"
+    insertafter: EOF
+    line: auth    optional    pam_faildelay.so delay=4000000
+    state: present

@@ -1,0 +1,9 @@
+---
+# PHTN-30-000060
+- name: The Photon operating system RPM package management tool must cryptographically verify the authenticity of all software packages during installation.
+  ansible.builtin.lineinfile:
+    path: "{{ var_tdnf_conf_file }}"
+    regexp: "^gpgcheck "
+    line: "gpgcheck=1"
+    state: present
+    backup: yes

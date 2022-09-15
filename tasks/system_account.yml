@@ -1,0 +1,15 @@
+---
+# PHTN-30-000002
+- name: Remove existing pam_tally.so line from pam account
+  ansible.builtin.lineinfile:
+    path: "{{ var_pam_system_account_file }}"
+    regexp: "pam_tally2.so"
+    state: absent
+
+- name: Add line to lock account after three unsuccessful attempts
+  ansible.builtin.lineinfile:
+    path: "{{ var_pam_system_account_file }}"
+    firstmatch: yes
+    insertafter: "pam_unix.so"
+    line: account    required    pam_tally2.so deny=3 onerr=fail audit even_deny_root unlock_time=900 root_unlock_time=300
+    state: present

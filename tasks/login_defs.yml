@@ -1,0 +1,54 @@
+---
+# PHTN-30-000025
+- name: "The Photon operating system must store only encrypted representations of passwords."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "ENCRYPT_METHOD "
+    line: "ENCRYPT_METHOD SHA512"
+    state: present
+    backup: yes
+
+# PHTN-30-000027
+- name: "The Photon operating system must be configured so that passwords for new users are restricted to a 24-hour minimum lifetime."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "^PASS_MIN_DAYS "
+    line: "PASS_MIN_DAYS 1"
+    state: present
+    backup: yes
+
+# PHTN-30-000028
+- name: "The Photon operating system must be configured so that passwords for new users are restricted to a 90-day maximum lifetime."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "^PASS_MAX_DAYS "
+    line: "PASS_MAX_DAYS 90"
+    state: present
+    backup: yes
+
+# PHTN-30-000072
+- name: "The Photon operating system must set the FAIL_DELAY parameter."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "FAIL_DELAY"
+    line: "FAIL DELAY 4"
+    state: present
+    backup: yes
+
+# PHTN-30-000075
+- name: "The Photon operating system must create a home directory for all new local interactive user accounts."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "CREATE_HOME "
+    line: "CREATE_HOME yes"
+    state: present
+    backup: yes
+
+# PHTN-30-000114
+- name: "The Photon operating system must set the UMASK parameter correctly."
+  ansible.builtin.lineinfile:
+    path: "{{ var_login_defs_file }}"
+    regexp: "UMASK"
+    line: "UMASK 077"
+    state: present
+    backup: yes

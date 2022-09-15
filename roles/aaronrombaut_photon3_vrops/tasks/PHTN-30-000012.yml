@@ -1,0 +1,19 @@
+---
+# PHTN-30-000012
+
+# Note: The STIG Fix Text specifies the rules ending in '-F key=execpriv'
+# This is actually the result of the output from auditctl -l
+# The rule needs to be loaded as '-k execpriv'
+# It will be converted to '-F' after the rules are loaded
+
+- name: "PHTN-30-000012: The Photon operating system must be configured to audit the execution of privileged functions."
+  ansible.builtin.lineinfile:
+    path: "{{ var_audit_stig_rules_file }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - line: -a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k execpriv
+    - line: -a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k execpriv
+    - line: -a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k execpriv
+    - line: -a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k execpriv
+  notify: load new audit rules

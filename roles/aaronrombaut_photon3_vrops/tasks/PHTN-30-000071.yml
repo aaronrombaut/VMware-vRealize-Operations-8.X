@@ -1,0 +1,8 @@
+---
+# # PHTN-30-000071
+# - name: The Photon operating system must use the pam_cracklib module.
+#   ansible.builtin.lineinfile:
+#     path: "{{ var_pam_system_password_file }}"
+#     regexp: "password    requisite "
+#     line: "password   requisite   pam_cracklib.so dcredit=-1 ucredit=-1 lcredit=-1 ocredit=-1 minlen=8 minclass=4 difok=4 retry=3 maxsequence=0 enforce_for_root"
+#     state: present

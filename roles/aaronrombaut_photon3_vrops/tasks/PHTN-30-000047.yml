@@ -1,0 +1,7 @@
+---
+# PHTN-30-000047
+- name: Audit files must have correct permissions
+  ansible.builtin.file:
+    path: "{{ var_auditd_conf_file }}"
+    owner: root
+    group: root

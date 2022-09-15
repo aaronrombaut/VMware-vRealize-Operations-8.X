@@ -1,0 +1,11 @@
+---
+# PHTN-30-000045
+- name: "PHTN-30-000045: The Photon operating system must audit all account removal actions."
+  ansible.builtin.lineinfile:
+    path: "{{ var_audit_stig_rules_file }}"
+    line: "{{ item.line }}"
+    state: present
+  with_items:
+    - line: -w /usr/sbin/userdel -p x -k userdel
+    - line: -w /usr/sbin/groupdel -p x -k groupdel
+  notify: load new audit rules
