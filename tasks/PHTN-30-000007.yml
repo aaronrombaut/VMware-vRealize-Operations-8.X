@@ -7,3 +7,4 @@
     line: "authpriv.*   /var/log/auth.log"
     state: present
     backup: yes
+  notify: restart rsyslog service

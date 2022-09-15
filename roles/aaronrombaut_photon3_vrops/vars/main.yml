@@ -9,7 +9,7 @@ var_syslog_server_port: "514"
 var_syslog_server_protocol: "@" # (For UDP) "@"; (For TCP) "@@"; (For TLS) "@@(o)"
 
 # directories
-var_audit_directory: "/etc/audit"
+var_audit_directory: "/etc/audit"                     # PHTN-30-000019
 var_etc_rc_d_directory: "/etc/rc.d/"
 var_log_audit_directory: "/var/log/audit/"
 var_log_directory: "/var/log"
