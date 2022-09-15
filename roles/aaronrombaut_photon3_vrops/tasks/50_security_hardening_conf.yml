@@ -1,9 +1,0 @@
----
-# PHTN-30-000065
-- name: The Photon operating system must implement address address space layout randomization (ASLR) to protect its memory from unauthorized code execution.
-  ansible.builtin.lineinfile:
-    path: "{{ var_50_security_hardening_conf_file }}"
-    regexp: "kernel.randomize_va_space "
-    line: "kernel.randomize_va_space=2"
-    state: present
-    backup: "yes"

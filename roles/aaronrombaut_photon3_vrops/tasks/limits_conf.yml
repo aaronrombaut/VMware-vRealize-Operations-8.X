@@ -1,9 +1,0 @@
----
-# PHTN-30-000004
-- name: The Photon operating system must limit the number of concurrent sessions to 10 for all accounts and/or account types.
-  ansible.builtin.lineinfile:
-    path: "{{ var_limits_conf_file }}"
-    line: "*              hard    maxlogins      10"
-    insertbefore: "# End of file"
-    state: present
-    backup: yes
