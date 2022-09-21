@@ -1,1 +1,19 @@
+---
+# PHTN-30-000017
+- name: "PHTN-30-000017: The Photon operating system audit log must be owned by root."
+  ansible.builtin.find:
+    paths: /var/log/audit/
+    file_type: file
+    patterns: "*.log*"
+  register: auditlogs_files
+
+# - ansible.builtin.debug: 
+#     var: auditlogs_files
+
+- name: "PHTN-30-000017: The Photon operating system audit log must be owned by root."
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: file
+    owner: root
+  with_items: "{{ auditlogs_files.files }}"
 
