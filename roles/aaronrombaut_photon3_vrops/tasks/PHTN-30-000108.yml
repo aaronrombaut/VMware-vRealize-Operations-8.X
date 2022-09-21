@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000108
-- name: Protect the SSH public host key from modification
+- name: "PHTN-30-000108: The Photon operating system must be configured to protect the SSH public host key from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root

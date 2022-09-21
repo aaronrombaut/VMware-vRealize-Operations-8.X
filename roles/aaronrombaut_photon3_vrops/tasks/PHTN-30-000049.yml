@@ -1,14 +1,27 @@
 ---
 # PHTN-30-000049
-- name: Get a list of files in the {{ var_usr_lib_directory }} directory.
-  ansible.builtin.find:
-    path: "{{ var_usr_lib_directory }}"
-  register: lib_files
 
-- name: The Photon operating system must limit privileges to change software resident within software libraries
+# This is a broad search and will return all files in the directory.
+# - name: "PHTN-30-000049: The Photon operating system must limit privileges to change software resident within software libraries."
+#   ansible.builtin.find:
+#     path: "{{ var_usr_lib_directory }}"
+#   register: lib_files
+
+# Modified the STIG Check text to only include the find, not print out the results
+# This is a targeted search, which should lower the run time on subsequent runs
+- name: Get a list of files
+  ansible.builtin.command:
+    cmd: find /usr/lib/ -type f "(" ! -user root -o ! -group root -o -perm /022 ")"
+  register: usr_lib_files
+
+# - debug:
+#     msg: "{{ item }}"
+#   loop: "{{ usr_lib_files.stdout_lines }}"
+
+- name: "PHTN-30-000049: The Photon operating system must limit privileges to change software resident within software libraries."
   ansible.builtin.file:
-    path: "{{ item.path }}"
+    path: "{{ item }}"
     owner: root
     group: root
     mode: "0755"
-  loop: "{{ lib_files.files }}"
+  loop: "{{ usr_lib_files.stdout_lines }}"

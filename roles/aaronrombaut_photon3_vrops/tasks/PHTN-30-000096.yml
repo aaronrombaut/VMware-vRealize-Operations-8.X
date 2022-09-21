@@ -5,7 +5,7 @@
     path: "{{ var_cron_d_directory }}"
   register: cron_d_files
 
-- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+- name: "PHTN-30-000096: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
@@ -18,7 +18,7 @@
     path: "{{ var_cron_daily_directory }}"
   register: daily_files
 
-- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+- name: "PHTN-30-000096: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
@@ -31,7 +31,7 @@
     path: "{{ var_cron_hourly_directory }}"
   register: hourly_files
 
-- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+- name: "PHTN-30-000096: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
@@ -44,7 +44,7 @@
     path: "{{ var_cron_monthly_directory }}"
   register: monthly_files
 
-- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+- name: "PHTN-30-000096: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
@@ -57,11 +57,10 @@
     path: "{{ var_cron_weekly_directory }}"
   register: weekly_files
 
-- name: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification.
+- name: "PHTN-30-000096: The Photon operating system must be configured so that all cron jobs are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
     group: root
     mode: "o-w"
   loop: "{{ weekly_files.files }}"
-

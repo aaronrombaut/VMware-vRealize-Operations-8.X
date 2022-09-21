@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000098
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000098: The Photon operating system must not forward IPv4 or IPv6 source-routed packets."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

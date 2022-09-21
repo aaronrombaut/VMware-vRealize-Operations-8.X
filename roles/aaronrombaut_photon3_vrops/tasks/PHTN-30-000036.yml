@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000036
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000036: The Photon operating system must use TCP syncookies."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

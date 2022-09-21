@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000048
-- name: Protect audit tools from unauthorized modification and deletion
+- name: "PHTN-30-000048: The Photon operating system must protect audit tools from unauthorized modification and deletion."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root

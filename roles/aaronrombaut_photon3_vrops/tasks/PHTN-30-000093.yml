@@ -1,14 +1,14 @@
 ---
 # PHTN-30-000093
-- name: Get a list of files in the {{ var_etc_rc_d_directory }} directory.
+- name: Get a list of files.
   ansible.builtin.find:
     path: "{{ var_etc_rc_d_directory }}"
   register: rc_d_files
 
-- name: The Photon operating system must be configured so that all system startup scripts are protected from unauthorized modification.
+- name: "PHTN-30-000093: The Photon operating system must be configured so that all system startup scripts are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
     group: root
     mode: "o-w"
-  loop: "{{ profile_d_files.files }}"
+  loop: "{{ rc_d_files.files }}"

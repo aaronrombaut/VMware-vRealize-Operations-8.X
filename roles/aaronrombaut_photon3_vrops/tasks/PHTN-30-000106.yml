@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000106
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000106: The Photon operating system must not perform IPv4 packet forwarding."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

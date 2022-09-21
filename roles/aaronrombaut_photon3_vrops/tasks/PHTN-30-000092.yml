@@ -1,11 +1,11 @@
 ---
 # PHTN-30-000092
-- name: Get a list of files in the {{ var_profile_d_directory }} directory.
+- name: Get a list of file.
   ansible.builtin.find:
     path: "{{ var_profile_d_directory }}"
   register: profile_d_files
 
-- name: The Photon operating system must be configured so that all global initialization scripts are protected from unathorized modification.
+- name: "PHTN-30-000092: The Photon operating system must be configured so that all global initialization scripts are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
@@ -15,7 +15,7 @@
     - path: "{{ var_bash_bashrc_file }}"
     - path: "{{ var_etc_profile_file }}"
 
-- name: The Photon operating system must be configured so that all global initialization scripts are protected from unathorized modification.
+- name: "PHTN-30-000092: The Photon operating system must be configured so that all global initialization scripts are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root

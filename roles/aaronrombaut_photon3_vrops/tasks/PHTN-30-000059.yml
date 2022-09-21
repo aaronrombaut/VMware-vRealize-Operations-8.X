@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000059
-- name: RPM package management tool must cryptographically verify the authenticity
+- name: "PHTN-30-000059: The Photon operating system RPM package management tool must cryptographically verify the authenticity of all software packages during installation."
   ansible.builtin.lineinfile:
     path: "{{ item.path }}"
     regexp: "nosignature"

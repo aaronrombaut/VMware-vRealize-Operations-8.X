@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000058
-- name: Synchronize with an approved DoD time source.
+- name: "PHTN-30-000058: The Photon operating system must be configured to synchronize with an approved DoD time source."
   ansible.builtin.lineinfile:
     path: "{{ var_ntp_conf_file }}"
     line: "{{ item.line }}"

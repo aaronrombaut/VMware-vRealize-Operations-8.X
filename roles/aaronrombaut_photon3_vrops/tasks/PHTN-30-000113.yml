@@ -1,15 +1,14 @@
 ---
 # PHTN-30-000113
-- name: Get a list of files in the {{ var_sysctl_d_directory }} directory.
+- name: Get a list of files.
   ansible.builtin.find:
     path: "{{ var_sysctl_d_directory }}"
   register: sysctl_d_files
 
-- name: The Photon operating system must protect all sysctl configuration files from unauthorized access.
+- name: "PHTN-30-000113: The Photon operating system must protect all sysctl configuration files from unauthorized access."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root
     group: root
     mode: "0600"
   loop: "{{ sysctl_d_files.files }}"
-    

@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000101
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000101: The Photon operating system must prevent IPv4 Internet Control Message Protocol (ICMP) secure redirect messages from being accepted."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

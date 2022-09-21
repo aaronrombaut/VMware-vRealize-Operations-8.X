@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000103
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000103: The Photon operating system must log IPv4 packets with impossible addresses."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

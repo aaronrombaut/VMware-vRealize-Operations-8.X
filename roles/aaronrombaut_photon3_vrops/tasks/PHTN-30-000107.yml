@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000107
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000107: The Photon operating system must send TCP timestamps."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000095
-- name: The Photon operating system must be configured so that the /etc/cron.allow file is protected from unauthorized modification.
+- name: "PHTN-30-000095: The Photon operating system must be configured so that the /etc/cron.allow file is protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ var_etc_cron_allow_file }}"
     owner: root

@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000047
-- name: Audit files must have correct permissions
+- name: "PHTN-30-000047: The Photon operating system audit files and directories must have correct permissions."
   ansible.builtin.file:
     path: "{{ var_auditd_conf_file }}"
     owner: root

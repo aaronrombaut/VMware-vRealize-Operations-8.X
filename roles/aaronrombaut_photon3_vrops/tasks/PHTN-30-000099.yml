@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000099
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000099: The Photon operating system must not respond to IPv4 Internet Control Message Protocol (ICMP) echoes sent to a broadcast address."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

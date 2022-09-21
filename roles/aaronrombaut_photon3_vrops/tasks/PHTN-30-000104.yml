@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000104
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000104: The Photon operating system must use a reverse-path filter for IPv4 network traffic."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000111
-- name: Get a list of files matching the /boot/*.cfg pattern.
+- name: Get a list of files.
   ansible.builtin.find:
     path: /boot/
     patterns: "*.cfg"
@@ -10,7 +10,7 @@
 
 # - debug: var=boot_cfg_files
 
-- name: The Photon operating system must protect all boot configuration files from unauthorized access
+- name: "PHTN-30-000111: The Photon operating system must protect all boot configuration files from unauthorized access."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root

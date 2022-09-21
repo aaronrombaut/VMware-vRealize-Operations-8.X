@@ -1,5 +1,6 @@
 ---
-- name: Update SSH Configuration File
+# PHTN-30-000081
+- name: "PHTN-30-000081: The Photon operating system must configure sshd to perform strict mode checking of home directory configuration files."
   ansible.builtin.lineinfile:
     path: "{{ var_sshd_config_file }}"
     regexp: "^StrictModes "

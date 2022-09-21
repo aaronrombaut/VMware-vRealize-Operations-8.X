@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000105
-- name: Set kernel tunables using sysctl
+- name: "PHTN-30-000105: The Photon operating system must not perform multicast packet forwarding."
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"

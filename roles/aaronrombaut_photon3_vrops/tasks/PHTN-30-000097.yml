@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000097
-- name: The Photon operating system must be configured so that all cron paths are protected from unauthorized modification.
+- name: "PHTN-30-000097: The Photon operating system must be configured so that all cron paths are protected from unauthorized modification."
   ansible.builtin.file:
     path: "{{ item.path }}"
     owner: root

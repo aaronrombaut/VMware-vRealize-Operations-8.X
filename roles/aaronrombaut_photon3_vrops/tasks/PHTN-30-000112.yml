@@ -1,11 +1,11 @@
 ---
 # PHTN-30-000112
-- name: Copy STIG compliant sshd_config file using a template
+- name: "PHTN-30-000112: The Photon operating system must protect sshd configuration from unauthorized access."
   ansible.builtin.template:
     src: templates/sshd_config_lean.j2
     dest: "{{ var_sshd_config_file }}"
     owner: root
     group: root
-    mode: '0600'
+    mode: "0600"
     backup: yes
   notify: restart ssh

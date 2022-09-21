@@ -1,17 +1,13 @@
 ---
 # PHTN-30-000046
-- name: The Photon operating system must initiate auditing as part of the boot process
+- name: "PHTN-30-000046: The Photon operating system must initiate auditing as part of the boot process."
   ansible.builtin.copy:
     src: files/grub.cfg
     dest: "{{ var_grub_cfg_file }}"
     owner: root
     group: root
-    mode: '0600'
+    mode: "0600"
     backup: yes
-
-
-
-
 # # PHTN-30-000046  (Needs work)
 # - name: Initiate auditing as part of the boot process
 #   ansible.builtin.replace:

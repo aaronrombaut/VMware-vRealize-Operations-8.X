@@ -1,5 +1,6 @@
 ---
-- name: The Photon operating system must be configured so that the /root path is protected from unauthorized access
+# PHTN-30-000091
+- name: "PHTN-30-000091: The Photon operating system must be configured so that the /root path is protected from unauthorized access."
   ansible.builtin.file:
     path: "{{ var_root_directory }}"
     owner: root

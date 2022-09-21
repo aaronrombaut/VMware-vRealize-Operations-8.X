@@ -1,6 +1,6 @@
 ---
 # PHTN-30-000041
-- name: /var/log/messages directory must be owned by root
+- name: "PHTN-30-000041: The Photon operating system messages file have the correct ownership and file permissions."
   ansible.builtin.file:
     path: "{{ var_log_messages_directory }}"
     owner: root
