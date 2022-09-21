@@ -1,0 +1,389 @@
+---
+# tasks file for aaronrombaut.photon3-vrops
+
+# PHTN-30-000013 must be first; enables auditd
+- name: "PHTN-30-000013"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000013.yml
+
+# - name: "PHTN-30-00000{{ item.line }}"
+#   ansible.builtin.include_tasks: "tasks/PHTN-30-00000{{ item }}.yml"
+#   loop: "{{ range(1,9)|list }}"
+
+## 000001 -000010
+
+- name: "PHTN-30-000001"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000001.yml
+
+- name: "PHTN-30-000002"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000002.yml
+
+- name: "PHTN-30-000003"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000003.yml
+
+- name: "PHTN-30-000004"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000004.yml
+
+- name: "PHTN-30-000005"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000005.yml
+
+- name: "PHTN-30-000006"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000006.yml
+
+- name: "PHTN-30-000007"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000007.yml
+
+- name: "PHTN-30-000008"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000008.yml
+
+- name: "PHTN-30-000009"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000009.yml
+
+- name: "PHTN-30-000010"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000010.yml
+
+# 000011 -000020
+
+- name: "PHTN-30-000011"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000011.yml
+
+- name: "PHTN-30-000012"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000012.yml
+
+# PHTN-30-000013 Omitted on purpose, this task is first in the list
+
+- name: "PHTN-30-000014"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000014.yml
+
+- name: "PHTN-30-000015"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000015.yml
+
+- name: "PHTN-30-000016"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000016.yml
+
+- name: "PHTN-30-000017"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000017.yml
+
+- name: "PHTN-30-000018"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000018.yml
+
+- name: "PHTN-30-000019"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000019.yml
+
+- name: "PHTN-30-000020"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000020.yml
+
+# 000021 -000030
+
+- name: "PHTN-30-000021"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000021.yml
+
+- name: "PHTN-30-000022"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000022.yml
+
+- name: "PHTN-30-000023"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000023.yml
+
+- name: "PHTN-30-000024"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000024.yml
+
+- name: "PHTN-30-000025"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000025.yml
+
+# The following task doesn't run correctly
+# - name: "PHTN-30-000026"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000026.yml
+
+- name: "PHTN-30-000027"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000027.yml
+
+- name: "PHTN-30-000028"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000028.yml
+
+- name: "PHTN-30-000029"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000029.yml
+
+- name: "PHTN-30-000030"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000030.yml
+
+# 000031 -000040
+
+# PHTN-30-000031 omitted
+
+- name: "PHTN-30-000032"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000032.yml
+
+# PHTN-30-000033 omitted
+
+# PHTN-30-000034 omitted, STIG ID does not exist
+
+- name: "PHTN-30-000035"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000035.yml
+
+- name: "PHTN-30-000036"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000036.yml
+
+- name: "PHTN-30-000037"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000037.yml
+
+- name: "PHTN-30-000038"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000038.yml
+
+- name: "PHTN-30-000039"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000039.yml
+
+- name: "PHTN-30-000040"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000040.yml 
+
+# 000041 -000050
+
+- name: "PHTN-30-000041"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000041.yml
+
+- name: "PHTN-30-000042"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000042.yml
+
+- name: "PHTN-30-000043"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000043.yml
+
+- name: "PHTN-30-000044"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000044.yml
+
+- name: "PHTN-30-000045"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000045.yml
+
+- name: "PHTN-30-000046"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000046.yml
+
+- name: "PHTN-30-000047"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000047.yml
+
+- name: "PHTN-30-000048"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000048.yml
+
+- name: "PHTN-30-000049"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000049.yml
+
+- name: "PHTN-30-000050"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000050.yml
+
+# 000051 -000060
+
+# PHTN-30-000051 omitted
+
+- name: "PHTN-30-000052"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000052.yml
+
+- name: "PHTN-30-000053"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000053.yml
+
+- name: "PHTN-30-000054"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000054.yml
+
+- name: "PHTN-30-000055"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000055.yml
+
+- name: "PHTN-30-000056"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000056.yml
+
+- name: "PHTN-30-000057"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000057.yml
+
+- name: "PHTN-30-000058"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000058.yml
+
+- name: "PHTN-30-000059"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000059.yml
+
+- name: "PHTN-30-000060"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000060.yml
+
+# 000061 -000070
+
+- name: "PHTN-30-000061"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000061.yml
+
+# PHTN-30-000062 omitted
+
+# PHTN-30-000063 omitted
+
+- name: "PHTN-30-000064"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000064.yml
+
+- name: "PHTN-30-000065"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000065.yml
+
+- name: "PHTN-30-000066"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000066.yml
+
+- name: "PHTN-30-000067"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000067.yml
+
+- name: "PHTN-30-000068"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000068.yml
+
+- name: "PHTN-30-000069"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000069.yml
+
+- name: "PHTN-30-000070"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000070.yml
+
+# 000071 -000080
+
+- name: "PHTN-30-000071"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000071.yml
+
+- name: "PHTN-30-000072"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000072.yml
+
+- name: "PHTN-30-000073"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000073.yml
+
+- name: "PHTN-30-000074"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000074.yml
+
+- name: "PHTN-30-000075"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000075.yml
+
+- name: "PHTN-30-000076"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000076.yml
+
+- name: "PHTN-30-000077"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000077.yml
+
+- name: "PHTN-30-000078"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000078.yml
+
+- name: "PHTN-30-000079"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000079.yml
+
+- name: "PHTN-30-000080"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000080.yml
+
+# 000081 - 000090
+
+- name: "PHTN-30-000081"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000081.yml
+
+- name: "PHTN-30-000082"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000082.yml
+
+- name: "PHTN-30-000083"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000083.yml
+
+- name: "PHTN-30-000084"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000084.yml
+
+- name: "PHTN-30-000085"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000085.yml
+
+- name: "PHTN-30-000086"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000086.yml
+
+- name: "PHTN-30-000087"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000087.yml
+
+- name: "PHTN-30-000088"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000088.yml
+
+# PHTN-30-000089 omitted
+
+- name: "PHTN-30-000090"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000090.yml
+  
+# 000091 - 000100
+
+- name: "PHTN-30-000091"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000091.yml
+
+- name: "PHTN-30-000092"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000092.yml
+
+- name: "PHTN-30-000093"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000093.yml
+
+# PHTN-30-000094 omitted
+
+- name: "PHTN-30-000095"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000095.yml
+
+- name: "PHTN-30-000096"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000096.yml
+
+- name: "PHTN-30-000097"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000097.yml
+
+- name: "PHTN-30-000098"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000098.yml
+
+- name: "PHTN-30-000099"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000099.yml
+
+- name: "PHTN-30-000100"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000100.yml
+
+# 000100 - 000110
+
+- name: "PHTN-30-000101"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000101.yml
+
+- name: "PHTN-30-000102"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000102.yml
+
+- name: "PHTN-30-000103"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000103.yml
+
+- name: "PHTN-30-000104"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000104.yml
+
+- name: "PHTN-30-000105"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000105.yml
+
+- name: "PHTN-30-000106"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000106.yml
+
+- name: "PHTN-30-000107"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000107.yml
+
+- name: "PHTN-30-000108"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000108.yml
+
+- name: "PHTN-30-000109"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000109.yml
+
+- name: "PHTN-30-000110"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000110.yml
+
+# 000111 - 000117
+
+- name: "PHTN-30-000111"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000111.yml
+
+- name: "PHTN-30-000112"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000112.yml
+
+- name: "PHTN-30-000113"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000113.yml
+
+- name: "PHTN-30-000114"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000114.yml
+
+- name: "PHTN-30-000115"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000115.yml
+
+# PHTN-30-000116 omitted
+
+- name: "PHTN-30-000117"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000117.yml
+
+- name: "PHTN-30-000118"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000118.yml
+
+- name: "PHTN-30-000119"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000119.yml
+
+- name: "PHTN-30-000120"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000120.yml
+
+- name: Print all Ansible facts
+  ansible.builtin.debug:
+    var: ansible_facts['eth0']['ipv4']['address']
