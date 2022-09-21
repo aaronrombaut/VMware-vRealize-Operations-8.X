@@ -1,5 +1,11 @@
 ---
 # tasks file for aaronrombaut.photon3-vrops
 
-- name: "PHTN-30-000049"
-  ansible.builtin.include_tasks: tasks/PHTN-30-000049.yml
+- name: "PHTN-30-000016"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000016.yml
+
+- name: "PHTN-30-000017"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000017.yml
+
+- name: "PHTN-30-000018"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000018.yml
