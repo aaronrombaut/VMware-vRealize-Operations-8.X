@@ -1,0 +1,47 @@
+# 
+# Configuration items here must be present before setting the rest
+#
+FipsMode yes                                                         # PHTN-30-000009
+
+#
+# Configuration items here are defaults and do not have to be in an certain order
+#
+AllowAgentForwarding no
+AllowGroups wheel
+AuthorizedKeysFile      .ssh/authorized_keys
+ChallengeResponseAuthentication no
+KexAlgorithms diffie-hellman-group14-sha1,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha1-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,hmac-sha1
+MaxSessions 1
+PasswordAuthentication yes
+Port 22
+Subsystem       sftp    /usr/libexec/sftp-server
+syslogfacility AUTHPRIV
+TCPKeepAlive no
+UsePAM yes
+PermitRootLogin {{ var_permitrootlogin }}
+
+#
+# Configuration items below are explicitly called out in STIG
+#
+AllowTcpForwarding no                                                # PHTN-30-000119
+Banner /etc/issue                                                    # PHTN-30-000003
+Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr      # PHTN-30-000064
+ClientAliveCountMax 0                                                # PHTN-30-000038
+ClientAliveInterval 900                                              # PHTN-30-000037
+Compression no                                                       # PHTN-30-000084
+GSSAPIAuthentication no                                              # PHTN-30-000078
+HostbasedAuthentication no                                           # PHTN-30-000115
+IgnoreRhosts yes                                                     # PHTN-30-000086
+IgnoreUserKnownHosts yes                                             # PHTN-30-000087
+KerberosAuthentication no                                            # PHTN-30-000082
+ListenAddress {{ ansible_facts['eth0']['ipv4']['address'] }}                                         # PHTN-30-000053
+LoginGraceTime 30                                                    # PHTN-30-000120
+LogLevel INFO                                                        # PHTN-30-000008
+MaxAuthTries 6                                                       # PHTN-30-000088
+PermitEmptyPasswords no                                              # PHTN-30-000083
+PermitUserEnvironment no                                             # PHTN-30-000079
+PrintLastLog yes                                                     # PHTN-30-000085
+StrictModes yes                                                      # PHTN-30-000081
+SyslogFacility AUTHPRIV                                              # PHTN-30-000006
+X11Forwarding no                                                     # PHTN-30-000080
