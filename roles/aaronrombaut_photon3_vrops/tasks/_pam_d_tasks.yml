@@ -1,0 +1,38 @@
+---
+# Include tasks working with /etc/pam.d files
+
+- name: "PHTN-30-000002"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000002.yml
+
+- name: "PHTN-30-000021"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000021.yml
+
+- name: "PHTN-30-000022"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000022.yml
+  
+- name: "PHTN-30-000023"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000023.yml
+
+- name: "PHTN-30-000024"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000024.yml
+
+- name: "PHTN-30-000029"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000029.yml
+  
+- name: "PHTN-30-000030"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000030.yml
+
+- name: "PHTN-30-000050"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000050.yml
+
+- name: "PHTN-30-000071"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000071.yml
+  
+- name: "PHTN-30-000073"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000073.yml
+
+- name: "PHTN-30-000110"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000110.yml
+  
+- name: "PHTN-30-000117"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000117.yml
