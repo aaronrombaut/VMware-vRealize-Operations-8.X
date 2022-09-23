@@ -1,30 +1,57 @@
 ---
 # PHTN-30-000002
-- name: Remove any existing "pam_tally2.so" line
-  ansible.builtin.lineinfile:
-    path: "{{ var_pam_system_auth_file }}"
-    regexp: "pam_tally2.so"
+- name: "PHTN-30-000002: Remove any existing pam_tally2.so line."
+  community.general.pamd:
+    name: system-auth
+    type: auth
+    control: required
+    module_path: pam_tally2.so
     state: absent
+    backup: yes
 
 - name: "PHTN-30-000002: The Photon operating system must automatically lock an account when three unsuccessful logon attempts occur."
-  ansible.builtin.lineinfile:
-    path: "{{ var_pam_system_auth_file }}"
-    firstmatch: yes
-    insertafter: "pam_unix.so"
-    line: auth    required    pam_tally2.so deny=3 onerr=fail audit even_deny_root unlock_time=900 root_unlock_time=300
-    state: present
+  community.general.pamd:
+    name: system-auth
+    new_type: auth
+    new_control: required
+    new_module_path: pam_tally2.so
+    module_arguments: "
+      deny=3
+      onerr=fail
+      audit
+      even_deny_root
+      unlock_time=900
+      root_unlock_time=300"
+    state: after
+    type: auth
+    control: required
+    module_path: pam_unix.so
+    backup: yes
 
-# PHTN-30-000002
-- name: Remove existing pam_tally2.so line
-  ansible.builtin.lineinfile:
-    path: "{{ var_pam_system_account_file }}"
-    regexp: "pam_tally2.so"
+- name: "PHTN-30-000002: Remove any existing pam_tally2.so line."
+  community.general.pamd:
+    name: system-account
+    type: account
+    control: required
+    module_path: pam_tally2.so
     state: absent
+    backup: yes
 
 - name: "PHTN-30-000002: The Photon operating system must automatically lock an account when three unsuccessful logon attempts occur."
-  ansible.builtin.lineinfile:
-    path: "{{ var_pam_system_account_file }}"
-    firstmatch: yes
-    insertafter: "pam_unix.so"
-    line: account    required    pam_tally2.so deny=3 onerr=fail audit even_deny_root unlock_time=900 root_unlock_time=300
-    state: present
+  community.general.pamd:
+    name: system-account
+    new_type: account
+    new_control: required
+    new_module_path: pam_tally2.so
+    module_arguments: "
+      deny=3
+      onerr=fail
+      audit
+      even_deny_root
+      unlock_time=900
+      root_unlock_time=300"
+    state: after
+    type: account
+    control: required
+    module_path: pam_unix.so
+    backup: yes
