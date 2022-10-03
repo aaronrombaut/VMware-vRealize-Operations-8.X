@@ -1,0 +1,71 @@
+--- 
+# Include tasks working with /etc/ssh/sshd_config file
+
+- name: "PHTN-30-000003"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000003.yml
+
+- name: "PHTN-30-000006"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000006.yml
+
+- name: "PHTN-30-000008"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000008.yml
+
+- name: "PHTN-30-000009"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000009.yml
+
+- name: "PHTN-30-000037"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000037.yml
+
+- name: "PHTN-30-000038"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000038.yml
+
+- name: "PHTN-30-000053"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000053.yml
+
+- name: "PHTN-30-000064"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000064.yml
+
+- name: "PHTN-30-000078"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000078.yml
+
+- name: "PHTN-30-000079"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000079.yml
+
+- name: "PHTN-30-000080"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000080.yml
+
+- name: "PHTN-30-000081"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000081.yml
+
+- name: "PHTN-30-000082"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000082.yml
+
+- name: "PHTN-30-000083"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000083.yml
+
+- name: "PHTN-30-000084"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000084.yml
+
+- name: "PHTN-30-000085"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000085.yml
+
+- name: "PHTN-30-000086"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000086.yml
+
+- name: "PHTN-30-000087"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000087.yml
+
+- name: "PHTN-30-000088"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000088.yml
+
+- name: "PHTN-30-000112"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000112.yml
+
+- name: "PHTN-30-000115"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000115.yml
+
+- name: "PHTN-30-000119"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000119.yml
+
+- name: "PHTN-30-000120"
+  ansible.builtin.include_tasks: tasks/PHTN-30-000120.yml
