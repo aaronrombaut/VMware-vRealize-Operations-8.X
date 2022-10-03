@@ -1,5 +1,11 @@
 ---
 # tasks file for aaronrombaut.photon3-vrops
 
-- name: "/etc/pam.d Tasks"
-  ansible.builtin.include_tasks: tasks/_pam_d_tasks.yml
+# - name: "/etc/pam.d Tasks"
+#   ansible.builtin.include_tasks: tasks/_pam_d_tasks.yml
+
+# - name: "/etc/ssh/sshd_config Tasks"
+#   ansible.builtin.include_tasks: tasks/_sshd_config_tasks.yml
+
+# - name: "PHTN-30-000026"
+#   ansible.builtin.include_tasks: tasks/PHTN-30-000026.yml

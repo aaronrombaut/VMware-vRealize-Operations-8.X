@@ -5,4 +5,5 @@
     path: "{{ var_sshd_config_file }}"
     regexp: "^FipsMode "
     line: "FipsMode yes"
+    insertbefore: "^Ciphers "
     state: present
